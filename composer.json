@@ -1,5 +1,10 @@
 {
 	"name":"gamelot/zen-table-filtrat",
 	"description":"Very simple jQuery code to add a filters before <table> html tag",
-	"version":"1.0.0"
+	"version":"1.0.0",
+	"type":"library",
+	"keywords":"input filter jquery, input filter for html table",
+	"homepage":"https://github.com/Ant0ny/zen-table-filtrat",
+	"time":"2020-04-29 16:55:00",
+	"license":"GPL-3.0-or-later"
 }
