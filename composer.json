@@ -1,6 +1,6 @@
 {
 	"name":"gamelot/zen-table-filtrat",
-	"description":"Very simple jQuery code to add some filters before <table> html tag",
+	"description":"A very simple jQuery code to add some filters before table html tag",
 	"version":"1.0.0",
 	"type":"library",
 	"keywords":["jquery"],
