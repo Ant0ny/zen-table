@@ -5,6 +5,11 @@ Hi! I'm glad to introduce you my new library (or JS code if you wish to say) for
 
 It's simple and easy to use.
 
+<h2>Where's the love?</h2>
+
+This code may add you an input filter to your html pages before table tag. And different tables may have separeted working filters for every table.
+You may create filters to all table columns to filter through all the rows. Or you may create a single input filter to filter rows accross all the table by all the columns.
+ 
 <h2>How to use?</h2>
 
 Add jQuery library to your html page, for example:
