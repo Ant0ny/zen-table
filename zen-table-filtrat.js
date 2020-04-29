@@ -32,18 +32,21 @@ jQuery(function($) {
         s += '<th>'+$(row_el).text()+'</th>';
       });
 
-      $(table_class).before('<table class="table-filters"><thead>'+s+'</thead></table>');
+      var n =$(".table-filters").length;
+      n += 1;
 
-      $(table_class).parent().find('.table-filters thead th').each(function() {
+      $(table_class).before('<table class="table-filters table-filter-'+n+'"><thead>'+s+'</thead></table>');
+
+      $(table_class).parent().find('.table-filter-'+n+' thead th').each(function() {
         var title = $(this).text();
         $(this).html( '<input type="text" placeholder="'+title+'" />' );
       });
 
-      $(document).on('keyup change', '.table-filters thead th input', function() {
+      $(document).on('keyup change', '.table-filter-'+n+' thead th input', function() {
         var arrs = [];
         var filter_count = 0;
 
-        $('.table-filters thead tr th').each(function(index0, el0) {
+        $('.table-filter-'+n+' thead tr th').each(function(index0, el0) {
           if ($(el0).find('input').val().length) {
             var replace = $(el0).find('input').val();
             var replace2 = replace.replace(/[[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
@@ -85,6 +88,8 @@ jQuery(function($) {
   function set_single_table_filter(table_class, filter_input_class){
     var filter_input_name = 'zen-table-filtrat-single-filter';
     var filter_input_class = '.'+filter_input_name;
+    var n = $(filter_input_class).length;
+    n += 1;
 
     if ($(table_class).length) {
       $(table_class).find('tbody tr').each(function(indx, elem){
@@ -92,9 +97,9 @@ jQuery(function($) {
       });
 
       $(table_class).before( '<div style="float: right;">'+
-      '<input type="text" placeholder="Searching filter..." class="'+filter_input_name+'" /></div>' );
+      '<input type="text" placeholder="Searching filter..." class="'+filter_input_name+' zen-filter-'+n+'" /></div>' );
 
-      $(document).on('keyup change', filter_input_class, function() {
+      $(document).on('keyup change', '.zen-filter-'+n, function() {
         var arrs = [];
         var filter_count = 0;
 
