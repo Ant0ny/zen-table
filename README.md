@@ -11,7 +11,7 @@ Add jQuery library to your html page, for example:
 
 &lt;script src="https://code.jquery.com/jquery-1.12.4.min.js"&gt; &lt;/script&gt;
 
-Now clone this project or donwload zip-archive and extract to folder with your html page code.
+Now clone this project or download zip-archive and extract to folder with your html page code.
 Add zen-table-filtrat.js to your html page, for example:
 
 &lt;script src="./zen-table-filtrat.js"&gt; &lt;/script&gt;
