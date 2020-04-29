@@ -23,7 +23,7 @@ Modify javascript code of zen-table-filtrat.js such way:
 <pre>set_table_filter(".table-tasks");</pre>
 <pre>set_single_table_filter(".error-table");</pre>
 
-.table-all-projects, .table-complekts, .table-tasks are css classes for 3 different html table tag. You will get an input filter to every td tag of yout table by th tags columns.
+.table-all-projects, .table-complekts, .table-tasks are css classes for 3 different html table tag. You will get an input filter to every td tag of your table by th tags columns.
 
 Table must contain thead and tbody sections (tags) and tags &lt;th&gt; must exist in thead and tags &lt;td&rt; must exist in tbody. 
 
