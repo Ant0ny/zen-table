@@ -35,6 +35,5 @@ Table must contain thead and tbody sections (tags) and tags &lt;th&gt; must exis
 .error-table is a css class for html table tag. You will get an input filter to filter across all td tags of yout table.
 
 ---
-Best regards,<br>
 Anton Bannikov,<br>
 Russia, Ekaterinburg
