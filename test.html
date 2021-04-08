@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Test table</title>
+	<title>Test Zen table</title>
 </head>
 <body>	
-	<table>
+	<style>
+		table {
+			width: 1200px;
+			border-collapse: collapse;
+		}
+		table th, table td{
+			width: 20%;
+		}
+		table thead{
+			border-top: 1px solid #ccc;
+			border-bottom: 4px solid #ccc;
+		}
+		table thead input[type="text"]{
+			width: 90%;
+		}	
+		table tbody{
+			border-bottom: 1px solid #ccc;
+		}
+		table thead span{
+			display: block;
+		}
+	</style>	
+	<table class="example">
 		<thead>
 			<tr>
-				<th class="table-id">ID</th>
+				<th>ID</th>
 				<th>Name</th>
 				<th>Phone</th>
 				<th>Country</th>
@@ -60,9 +82,9 @@
 		</tbody>
 	</table>
 	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-	<script src="./zen-table-filtrat.js"></script>
+	<script src="./zen-table.js"></script>
 	<script>
-		set_table_filter(".table-id");
+		$(".example").zenTable();
 	</script>
 </body>
 </html>
