@@ -15,71 +15,61 @@
 			set_table_filters('.' + e.prop('className'));
 		}
 
-		function set_table_filters(table_class) {
-			var n = $(table_class).length;
+		function onlyUnique(value, index, self) {
+			return self.indexOf(value) === index;
+		}
 
-			if (n) {
+		function set_table_filters(table_class) {
+			if ($(table_class).length) {
 				$(table_class).each(function(table_index, table_el) {
 			  	$(table_el).data('zen-index', table_index);
-			  });
 
-			  $(table_class).find('thead th').each(function(row_index, row_el) {
-			  	$(row_el).html('<span>'+$(row_el).text()+'</span>');
-					$(row_el).append('<input type="text" class="zen-filter zen-filter-'+row_index+'" placeholder="'+$(row_el).text()+'" />');
-			  });
+					$(table_el).find('thead th').each(function(th_index, th_el) {
+						$(th_el).html('<span>'+$(th_el).text()+'</span>');
+						//$(th_el).append('<input type="text" class="zen-filter zen-filter-'+th_index+'" placeholder="'+$(th_el).text()+'" />');
 
-			  $(document).on('keyup change', table_class+' thead th', function() {
-			    var row_indexes = [];
-			    var filter_count = 0;
+						let col_values = [];
+						$(table_el).find('tbody tr').each(function(tr_index, tr_el) {
+							col_values.push($(tr_el).find('td').eq(th_index).text());
+						});
 
-			    $(this).each(function(index0, el0) {
-			      if ($(el0).find('input').val().length) {
-			        var replace = $(el0).find('input').val();
-			        var replace2 = replace.replace(/[[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-			        var re = new RegExp(replace2,"gi");
+						let unique = col_values.filter(onlyUnique);
+						let options = unique.sort();
 
-			        row_indexes.push(matched_row_indexes(index0, re, table_class));
-			        filter_count++;
-			      }
-			    });
+						let str = '';
 
-			    /*var prev_arr = [];
-			    arrs.forEach(function(item, i, arr) {
-					if (i == 0){
-			        prev_arr = item;
-			      }
-			      if (i > 0) {
-			        var common = $.grep(prev_arr, function(element) {
-			          return $.inArray(element, item) !== -1;
-			        });
-			        prev_arr = common;
-			      }
-			    });*/
+						options.forEach(function(item, i, arr) {
+							str += '<option>'+item+'</option>';
+						});
 
-			    $(table_class).find('tbody tr').each(function(index2, el) {
-			      /*if (prev_arr.indexOf(index2) != -1){
+						$(th_el).append('<select class="zen-select zen-select-'+th_index+'" data-index="'+
+							th_index+'">'+str+'</select>');
+					});
+				});
+
+				$(document).on('change', '.zen-select', function() {
+					let matched_rows = [];
+					let index = $(this).data('index');
+					let selected = $(this).val();
+					let escaped = selected.replace(/[^\w\s]/g, "\\$&");
+					let matched = new RegExp(escaped,"gi");
+
+					$(this).closest('table').find('tbody tr').each(function(tr_index, tr_el) {
+						if ($(tr_el).find('td').eq(index).text().match(matched)) {
+							matched_rows.push(tr_index);
+						}
+					});
+
+					$(this).closest('table').find('tbody tr').each(function(index, el) {
+			      if (matched_rows.indexOf(index) != -1){
 			        $(el).show();
 			      } else {
 			        $(el).hide();
-			      }*/
+			      }
 			    });
-
-			    if (!filter_count){
-			      $(table_class).find('tbody tr').show();
-			    }
-			  });
+				});
 			}
 		}
-
-	  function matched_row_indexes(index, regexp, table_class) {
-	    var arr = [];
-	    $(table_class).find('tbody tr').each(function(index2, el) {
-	      if ($(el).find('td').eq(index).text().match(regexp)) {
-	        arr.push(index2);
-	      }
-	    });
-	    return arr;
-	  }
 
 		this.each(function() {
 		  main($(this));
