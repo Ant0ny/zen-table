@@ -1,10 +1,10 @@
 {
-	"name":"gamelot/zen-table-filtrat",
-	"description":"A very simple jQuery code to add some filters before table html tag",
-	"version":"1.0.0",
+	"name":"gamelot/zen-table",
+	"description":"jQuery plug-in for adding Select filter widgets to your captions of html table",
+	"version":"2.0.0",
 	"type":"library",
 	"keywords":["jquery"],
-	"homepage":"https://github.com/Ant0ny/zen-table-filtrat",
-	"time":"2020-04-29 16:55:00",
+	"homepage":"https://github.com/Ant0ny/zen-table",
+	"time":"2021-04-08 23:55:00",
 	"license":"GPL-3.0-or-later"
 }
