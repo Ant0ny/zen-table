@@ -1,5 +1,5 @@
 # zen-table
-jQuery plug-in for adding Select filter widgets to your captions of html table.
+jQuery plug-in for adding Select filter widgets to captions of html table.
 
 It's simple and easy to use.
 
