@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Zen table</title>
+</head>
+<body>
+	<style>
+		table {
+			width: 1200px;
+			border-collapse: collapse;
+		}
+		table th, table td{
+			width: 20%;
+		}
+		table thead{
+			border-top: 1px solid #ccc;
+			border-bottom: 4px solid #ccc;
+		}
+		table thead input[type="text"]{
+			width: 97%;
+		}
+		table tbody{
+			border-bottom: 1px solid #ccc;
+		}
+		table thead span{
+			display: block;
+		}
+		select{
+			width: 100%;
+		}
+	</style>
+	<table class="example">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Country</th>
+				<th>Comment</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>J. Smith</td>
+				<td>+1-249-563-28-23</td>
+				<td>USA</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Ivan Petrov</td>
+				<td>+7-933-223-16-33</td>
+				<td>Russia</td>
+				<td>First class client</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Alex Usupov</td>
+				<td>+380-93-728-2373</td>
+				<td>Ukraine</td>
+				<td>Desktop OS Windows 10 support</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>Zaumba Lucia</td>
+				<td>+27-76-462-3705</td>
+				<td>South Africa</td>
+				<td>TODO: up hourly rates</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>J.J. Abraham</td>
+				<td>+1 212-922-1200</td>
+				<td>USA</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>Max Pokrovsky</td>
+				<td>+7-912-125-16-43</td>
+				<td>Russia</td>
+				<td>Best solution offered</td>
+			</tr>
+		</tbody>
+	</table>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+	<script src="./zen-table.js"></script>
+	<script>
+		$(".example").zenTable();
+	</script>
+</body>
+</html>
