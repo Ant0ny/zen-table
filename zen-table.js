@@ -36,7 +36,7 @@
 						let unique = col_values.filter(onlyUnique);
 						let options = unique.sort();
 
-						let str = '';
+						let str = '<option>Select '+$(th_el).text()+'...</option>';
 
 						options.forEach(function(item, i, arr) {
 							str += '<option>'+item+'</option>';
@@ -67,6 +67,10 @@
 			        $(el).hide();
 			      }
 			    });
+
+			    if ($(this).prop('selectedIndex') === 0) {
+			    	$(this).closest('table').find('tbody tr').show();
+			    }
 				});
 			}
 		}
